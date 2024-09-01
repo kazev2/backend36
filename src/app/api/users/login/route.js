@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { comparePassword } from '../lib/auth';
 import { Client } from "pg";
 import dotenv from "dotenv";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'; 
 import jwt from 'jsonwebtoken';
 
 dotenv.config();
@@ -45,7 +45,7 @@ export async function POST(request) {
     // ตัวอย่างนี้จะข้ามขั้นตอนการสร้าง JWT เพื่อความง่าย
     return new Response(JSON.stringify({ message: 'Login successful', user, token }), {
       status: 200,
-      headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+      headers: { 'Access-Control-Allow-Origin': '', 'Content-Type': 'application/json' },
     });
 
     }
@@ -53,7 +53,7 @@ export async function POST(request) {
     console.error(error);
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
       status: 500,
-      headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+      headers: { 'Access-Control-Allow-Origin': '', 'Content-Type': 'application/json' },
     });
   }
 }
